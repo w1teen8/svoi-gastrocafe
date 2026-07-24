@@ -24,16 +24,11 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-          scrolled ? "py-3" : "py-6"
+          "fixed inset-x-0 top-0 z-50 w-full transition-all duration-500",
+          scrolled ? "glass py-3 shadow-[0_8px_30px_rgba(0,0,0,0.06)]" : "py-6"
         )}
       >
-        <div
-          className={cn(
-            "mx-auto flex max-w-7xl items-center justify-between rounded-full px-6 transition-all duration-500 sm:px-8",
-            scrolled ? "glass mx-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.06)] sm:mx-8" : "py-2"
-          )}
-        >
+        <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-6 sm:px-8 lg:px-12">
           <a
             href="#home"
             className="font-display text-xl tracking-[0.15em] text-primary"
