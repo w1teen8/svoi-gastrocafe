@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import SignatureDishes from "@/components/SignatureDishes";
 import MenuSection from "@/components/MenuSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Events from "@/components/Events";
@@ -16,7 +15,6 @@ export default function Home() {
     <main className="relative">
       <Hero />
       <About />
-      <SignatureDishes />
       <MenuSection />
       <WhyChooseUs />
       <Events />
