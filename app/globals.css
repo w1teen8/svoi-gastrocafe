@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Colors */
+  --color-bg: #f8f6f3;
+  --color-bg-secondary: #efeae3;
+  --color-card: rgba(255, 255, 255, 0.72);
+  --color-border-soft: rgba(0, 0, 0, 0.08);
+  --color-primary: #2c2926;
+  --color-secondary: #786f69;
+  --color-brown: #775944;
+  --color-olive: #8c9274;
+  --color-gold: #c7a46a;
+
+  /* Fonts */
+  --font-display: var(--font-playfair), "Playfair Display", serif;
+  --font-sans: var(--font-inter), "Inter", sans-serif;
+
+  /* Radius */
+  --radius-lux: 24px;
+  --radius-lux-sm: 16px;
+  --radius-lux-lg: 32px;
+
+  /* Easing */
+  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --breakpoint-3xl: 1920px;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #fff;
+}
+
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button {
+    cursor: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 999px;
+  border: 2px solid var(--color-bg);
+}
+
+.glass {
+  background: var(--color-card);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--color-border-soft);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.reveal-mask {
+  overflow: hidden;
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -24px, 0) rotate(3deg);
+  }
+}
+.animate-float-slow {
+  animation: floatSlow 10s var(--ease-lux) infinite;
+}
+@keyframes floatSlower {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, 20px, 0) rotate(-4deg);
+  }
+}
+.animate-float-slower {
+  animation: floatSlower 14s var(--ease-lux) infinite;
+}
