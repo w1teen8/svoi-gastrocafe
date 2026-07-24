@@ -1,11 +1,11 @@
 [
-  { "id": "g1", "category": "Інтер'єр", "caption": "Затишна зала гастрокафе", "tone": "warm", "size": "lg" },
+  { "id": "g1", "category": "Інтер'єр", "caption": "Зала з авторськими панно", "tone": "warm", "size": "lg" },
   { "id": "g2", "category": "Кава", "caption": "Ритуал ранкової кави", "tone": "olive", "size": "sm" },
   { "id": "g3", "category": "Їжа", "caption": "Тартар з лосося «СВОЇ»", "tone": "gold", "size": "md" },
   { "id": "g4", "category": "Події", "caption": "Винний вечір із сомельє", "tone": "brown", "size": "sm" },
   { "id": "g5", "category": "Lifestyle", "caption": "Ранок у «СВОЇ»", "tone": "sand", "size": "md" },
-  { "id": "g6", "category": "Інтер'єр", "caption": "Барна стійка", "tone": "brown", "size": "sm" },
+  { "id": "g6", "category": "Інтер'єр", "caption": "Тераса зі ставком та альтанками", "tone": "pond", "size": "lg" },
   { "id": "g7", "category": "Їжа", "caption": "Деконструкція «Наполеон»", "tone": "gold", "size": "lg" },
-  { "id": "g8", "category": "Події", "caption": "Live music вечір", "tone": "primary", "size": "sm" },
+  { "id": "g8", "category": "Події", "caption": "Приватна зала для банкетів", "tone": "primary", "size": "sm" },
   { "id": "g9", "category": "Lifestyle", "caption": "Розмови за філіжанкою кави", "tone": "olive", "size": "md" }
 ]

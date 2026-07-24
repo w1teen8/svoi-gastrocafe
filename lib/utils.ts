@@ -5,12 +5,13 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const TONE_GRADIENTS: Record<string, string> = {
-  primary: "from-[#2C2926] via-[#443d37] to-[#786F69]",
-  brown: "from-[#775944] via-[#8c6b52] to-[#C7A46A]",
-  olive: "from-[#565c46] via-[#8C9274] to-[#c9cdb8]",
-  gold: "from-[#a3814f] via-[#C7A46A] to-[#e8d6b3]",
-  sand: "from-[#d8cdbd] via-[#EFEAE3] to-[#F8F6F3]",
-  warm: "from-[#5c463a] via-[#775944] to-[#b89679]",
+  primary: "from-[#2B2620] via-[#3d3226] to-[#6b5a45]",
+  brown: "from-[#5b3a22] via-[#8a5a34] to-[#c99361]",
+  olive: "from-[#2f4a30] via-[#4f7a45] to-[#a8c090]",
+  gold: "from-[#8f4a22] via-[#c97c3f] to-[#f0c48a]",
+  sand: "from-[#dccdab] via-[#efe6d6] to-[#f8f6ef]",
+  warm: "from-[#4a3320] via-[#6b4a30] to-[#b8916a]",
+  pond: "from-[#1f3d3a] via-[#2f5c52] to-[#7fa89a]",
 };
 
 export function toneGradient(tone?: string) {

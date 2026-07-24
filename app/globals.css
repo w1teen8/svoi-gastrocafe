@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Colors */
-  --color-bg: #f8f6f3;
-  --color-bg-secondary: #efeae3;
+  /* Colors — warm garden/terrace palette (pond greens, oak wood, terracotta light) */
+  --color-bg: #f8f6ef;
+  --color-bg-secondary: #efe6d6;
   --color-card: rgba(255, 255, 255, 0.72);
   --color-border-soft: rgba(0, 0, 0, 0.08);
-  --color-primary: #2c2926;
-  --color-secondary: #786f69;
-  --color-brown: #775944;
-  --color-olive: #8c9274;
-  --color-gold: #c7a46a;
+  --color-primary: #2b2620;
+  --color-secondary: #7a6d5c;
+  --color-brown: #6b4a30;
+  --color-olive: #4f6b45;
+  --color-gold: #b8672e;
 
   /* Fonts */
   --font-display: var(--font-playfair), "Playfair Display", serif;
