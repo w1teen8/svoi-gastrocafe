@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
 const categories = ["Усі", ...Array.from(new Set(galleryData.map((g) => g.category)))];
 
 const sizeClass: Record<string, string> = {
-  sm: "h-56",
-  md: "h-72",
-  lg: "h-96",
+  sm: "h-36",
+  md: "h-48",
+  lg: "h-60",
 };
 
 export default function Gallery() {
@@ -77,7 +77,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="mt-14 columns-1 gap-5 sm:columns-2 lg:columns-3">
+        <div className="mt-14 columns-2 gap-4 sm:columns-3 lg:columns-4">
           {filtered.map((item, i) => (
             <motion.button
               key={item.id}
@@ -86,7 +86,7 @@ export default function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: (i % 6) * 0.06 }}
-              className="group mb-5 block w-full break-inside-avoid overflow-hidden rounded-lux text-left"
+              className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-lux text-left"
             >
               <div className={cn("relative w-full overflow-hidden", sizeClass[item.size] ?? "h-72")}>
                 <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105">
