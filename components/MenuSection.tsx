@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import menu from "@/data/menu.json";
 import SectionHeading from "./ui/SectionHeading";
 import { cn } from "@/lib/utils";
@@ -29,7 +31,7 @@ export default function MenuSection() {
               className={cn(
                 "rounded-full px-5 py-2.5 font-sans text-sm tracking-wide transition-all duration-300",
                 active === c.id
-                  ? "bg-primary text-bg"
+                  ? "bg-gold-dark text-bg"
                   : "bg-transparent text-secondary hover:bg-primary/5 hover:text-primary"
               )}
             >
@@ -71,6 +73,20 @@ export default function MenuSection() {
               ))}
             </motion.div>
           </AnimatePresence>
+        </div>
+
+        <div className="mt-14 flex justify-center">
+          <Link
+            href="/menu"
+            data-cursor="magnetic"
+            className="group inline-flex items-center gap-2 font-sans text-sm uppercase tracking-[0.25em] text-gold transition-colors hover:text-gold-dark"
+          >
+            Переглянути повне меню
+            <ArrowUpRight
+              size={16}
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </Link>
         </div>
       </div>
     </section>

@@ -17,3 +17,14 @@ export const TONE_GRADIENTS: Record<string, string> = {
 export function toneGradient(tone?: string) {
   return TONE_GRADIENTS[tone ?? "primary"] ?? TONE_GRADIENTS.primary;
 }
+
+/** Parses a display price like "185 ₴" into a plain number (185). */
+export function parsePrice(price: string): number {
+  const digits = price.replace(/[^\d.,]/g, "").replace(",", ".");
+  const value = parseFloat(digits);
+  return Number.isFinite(value) ? value : 0;
+}
+
+export function formatPrice(value: number): string {
+  return `${Math.round(value * 100) / 100} ₴`;
+}

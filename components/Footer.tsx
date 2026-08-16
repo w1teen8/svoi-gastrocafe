@@ -1,3 +1,4 @@
+import Link from "next/link";
 import settings from "@/data/settings.json";
 import { Phone, Mail, MapPin } from "lucide-react";
 import InstagramIcon from "./ui/InstagramIcon";
@@ -25,12 +26,12 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {settings.nav.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="font-sans text-sm text-primary/80 transition-colors hover:text-gold"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

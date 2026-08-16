@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import settings from "@/data/settings.json";
+import Providers from "./providers";
 import Loader from "@/components/Loader";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
@@ -87,14 +88,16 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bg font-sans text-primary antialiased">
-        <Loader />
-        <SmoothScroll />
-        <CustomCursor />
-        <ScrollProgress />
-        <Navbar />
-        {children}
-        <Footer />
-        <StickyReserveButton />
+        <Providers>
+          <Loader />
+          <SmoothScroll />
+          <CustomCursor />
+          <ScrollProgress />
+          <Navbar />
+          {children}
+          <Footer />
+          <StickyReserveButton />
+        </Providers>
       </body>
     </html>
   );

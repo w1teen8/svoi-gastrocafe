@@ -2,7 +2,16 @@
 
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
+
+function isExternalHref(href: string) {
+  return (
+    href.startsWith("http") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:")
+  );
+}
 
 interface MagneticButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -38,7 +47,7 @@ export default function MagneticButton({
 
   const base =
     variant === "solid"
-      ? "bg-primary text-bg hover:bg-brown"
+      ? "bg-gold-dark text-bg hover:bg-gold"
       : "bg-transparent text-primary border border-primary/20 hover:border-primary/40";
 
   const content = (
@@ -66,10 +75,17 @@ export default function MagneticButton({
   );
 
   if (href) {
+    if (isExternalHref(href)) {
+      return (
+        <a href={href} onClick={onClick} className="inline-block">
+          {content}
+        </a>
+      );
+    }
     return (
-      <a href={href} onClick={onClick} className="inline-block">
+      <Link href={href} onClick={onClick} className="inline-block">
         {content}
-      </a>
+      </Link>
     );
   }
 

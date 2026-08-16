@@ -29,14 +29,14 @@
     "secondary": "Переглянути меню"
   },
   "nav": [
-    { "label": "Головна", "href": "#home" },
-    { "label": "Меню", "href": "#menu" },
-    { "label": "Про нас", "href": "#about" },
-    { "label": "Події", "href": "#events" },
-    { "label": "Галерея", "href": "#gallery" },
-    { "label": "Відгуки", "href": "#reviews" },
-    { "label": "FAQ", "href": "#faq" },
-    { "label": "Контакти", "href": "#contacts" }
+    { "label": "Головна", "href": "/#home" },
+    { "label": "Меню", "href": "/menu" },
+    { "label": "Про нас", "href": "/#about" },
+    { "label": "Події", "href": "/#events" },
+    { "label": "Галерея", "href": "/#gallery" },
+    { "label": "Відгуки", "href": "/#reviews" },
+    { "label": "FAQ", "href": "/#faq" },
+    { "label": "Контакти", "href": "/#contacts" }
   ],
   "seo": {
     "title": "Гастрокафе «СВОЇ» — сучасна кухня та кава в Боярці",

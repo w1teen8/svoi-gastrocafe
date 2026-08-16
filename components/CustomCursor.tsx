@@ -60,13 +60,13 @@ export default function CustomCursor() {
           width: hovering ? 90 : 56,
           height: hovering ? 90 : 56,
           background:
-            "radial-gradient(circle, rgba(199,164,106,0.35) 0%, rgba(199,164,106,0.08) 55%, transparent 75%)",
+            "radial-gradient(circle, rgba(184,80,28,0.35) 0%, rgba(184,80,28,0.08) 55%, transparent 75%)",
           filter: "blur(2px)",
         }}
       />
       <div
         ref={dotRef}
-        className="pointer-events-none fixed left-0 top-0 z-[9999] rounded-full bg-primary transition-[width,height] duration-300 ease-out"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] rounded-full bg-gold-dark transition-[width,height] duration-300 ease-out"
         style={{ width: hovering ? 10 : 6, height: hovering ? 10 : 6 }}
       />
     </>

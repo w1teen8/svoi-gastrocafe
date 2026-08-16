@@ -68,7 +68,7 @@ export default function Gallery() {
               className={cn(
                 "rounded-full px-5 py-2 font-sans text-sm transition-all duration-300",
                 active === c
-                  ? "bg-primary text-bg"
+                  ? "bg-gold-dark text-bg"
                   : "bg-transparent text-secondary hover:text-primary"
               )}
             >
