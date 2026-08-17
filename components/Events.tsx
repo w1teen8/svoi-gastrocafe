@@ -10,21 +10,16 @@ export default function Events() {
   return (
     <section id="events" className="py-28 sm:py-36">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
-          <SectionHeading
-            eyebrow="Події"
-            title={
-              <>
-                Місце для ваших
-                <br />
-                особливих моментів
-              </>
-            }
-          />
-          <MagneticButton href="#reservation" variant="outline" className="shrink-0">
-            Обговорити подію
-          </MagneticButton>
-        </div>
+        <SectionHeading
+          eyebrow="Події"
+          title={
+            <>
+              Місце для ваших
+              <br />
+              особливих моментів
+            </>
+          }
+        />
 
         <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {events.map((event, i) => (
@@ -52,6 +47,12 @@ export default function Events() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <MagneticButton href="#reservation" className="!h-16 !px-12 !text-sm">
+            Обговорити подію
+          </MagneticButton>
         </div>
       </div>
     </section>
