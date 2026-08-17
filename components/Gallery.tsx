@@ -1,168 +1,80 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import galleryData from "@/data/gallery.json";
 import Breadcrumb from "./ui/Breadcrumb";
 import { withBasePath } from "@/lib/asset-path";
-import { cn } from "@/lib/utils";
-
-const categories = ["Усі", ...Array.from(new Set(galleryData.map((g) => g.category)))];
 
 export default function Gallery() {
-  const [active, setActive] = useState("Усі");
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [distance, setDistance] = useState(0);
 
-  const filtered = useMemo(
-    () => (active === "Усі" ? galleryData : galleryData.filter((g) => g.category === active)),
-    [active]
-  );
-
-  function openAt(id: string) {
-    const idx = filtered.findIndex((g) => g.id === id);
-    setLightboxIndex(idx);
-  }
-
-  function step(delta: number) {
-    setLightboxIndex((prev) => {
-      if (prev === null) return prev;
-      const next = (prev + delta + filtered.length) % filtered.length;
-      return next;
-    });
-  }
-
-  useEffect(() => {
-    if (lightboxIndex === null) return;
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") setLightboxIndex(null);
-      if (e.key === "ArrowLeft") step(-1);
-      if (e.key === "ArrowRight") step(1);
+  useLayoutEffect(() => {
+    function measure() {
+      if (!trackRef.current) return;
+      setDistance(Math.max(0, trackRef.current.scrollWidth - window.innerWidth + 80));
     }
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [lightboxIndex]);
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
-  const current = lightboxIndex !== null ? filtered[lightboxIndex] : null;
+  const { scrollYProgress } = useScroll({
+    target: wrapperRef,
+    offset: ["start start", "end end"],
+  });
+  const x = useTransform(scrollYProgress, [0, 1], [0, -distance]);
 
   return (
-    <section id="photo" className="bg-cream py-20 sm:py-28">
-      <div className="mx-auto max-w-[1280px] px-5 sm:px-10">
-        <h2 className="font-display text-4xl uppercase tracking-[0.03em] text-ink sm:text-5xl">
-          Фото
-        </h2>
-        <div className="mt-4">
-          <Breadcrumb items={[{ label: "Головна", href: "/" }, { label: "Фото" }]} />
+    <section
+      id="photo"
+      ref={wrapperRef}
+      className="relative bg-cream"
+      style={{ height: `calc(100vh + ${distance}px)` }}
+    >
+      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-20">
+        <div className="mx-auto mb-10 w-full max-w-[1280px] px-5 sm:px-10">
+          <h2 className="font-display text-4xl uppercase tracking-[0.03em] text-ink sm:text-5xl">
+            Фото
+          </h2>
+          <div className="mt-4">
+            <Breadcrumb items={[{ label: "Головна", href: "/" }, { label: "Фото" }]} />
+          </div>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-2">
-          {categories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setActive(c)}
-              className={cn(
-                "rounded-full border px-4 py-1.5 font-sans text-sm transition-all duration-300",
-                active === c
-                  ? "border-terracotta bg-terracotta text-cream"
-                  : "border-hairline text-ink-muted hover:text-ink"
-              )}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {filtered.map((item, i) => (
-            <motion.button
+        <motion.div ref={trackRef} style={{ x }} className="flex items-center gap-8 pl-[6vw]">
+          {galleryData.map((item, i) => (
+            <div
               key={item.id}
-              onClick={() => openAt(item.id)}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: (i % 8) * 0.05 }}
-              className="group relative aspect-square overflow-hidden rounded-card text-left"
+              className="relative h-[52vh] w-[min(60vw,760px)] shrink-0 overflow-hidden rounded-[28px] shadow-[0_20px_50px_rgba(43,29,20,0.18)]"
             >
               <Image
                 src={withBasePath(item.image)}
                 alt={item.caption}
                 fill
-                sizes="(min-width: 640px) 25vw, 50vw"
-                className="object-cover transition-transform duration-400 ease-out group-hover:scale-[1.04]"
+                sizes="60vw"
+                className="object-cover"
               />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-espresso/70 via-transparent to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="font-sans text-xs text-cream">{item.caption}</span>
-              </div>
-            </motion.button>
-          ))}
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {current && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[90] flex items-center justify-center bg-espresso/90 p-4 backdrop-blur-md sm:p-10"
-            onClick={() => setLightboxIndex(null)}
-          >
-            <button
-              aria-label="Закрити"
-              onClick={() => setLightboxIndex(null)}
-              className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-cream/10 text-cream hover:bg-cream/20"
-            >
-              <X size={20} />
-            </button>
-            <button
-              aria-label="Попереднє фото"
-              onClick={(e) => {
-                e.stopPropagation();
-                step(-1);
-              }}
-              className="absolute left-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/10 text-cream hover:bg-cream/20 sm:left-6"
-            >
-              <ChevronLeft size={22} />
-            </button>
-            <button
-              aria-label="Наступне фото"
-              onClick={(e) => {
-                e.stopPropagation();
-                step(1);
-              }}
-              className="absolute right-3 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/10 text-cream hover:bg-cream/20 sm:right-6"
-            >
-              <ChevronRight size={22} />
-            </button>
-
-            <motion.div
-              key={current.id}
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-3xl overflow-hidden rounded-card"
-            >
-              <div className="relative h-[60vh] w-full">
-                <Image
-                  src={withBasePath(current.image)}
-                  alt={current.caption}
-                  fill
-                  sizes="100vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex items-center justify-between bg-cream-card px-6 py-4">
-                <span className="font-display text-lg text-ink">{current.caption}</span>
-                <span className="font-sans text-xs uppercase tracking-[0.2em] text-ink-muted">
-                  {current.category}
+              <div
+                className="absolute inset-x-0 bottom-0 p-8"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(0deg, rgba(28,17,11,.85) 0%, rgba(28,17,11,0) 70%)",
+                }}
+              >
+                <span className="font-sans text-sm font-bold tracking-[0.05em] text-terracotta">
+                  0{i + 1}
                 </span>
+                <h3 className="mt-2 font-display text-2xl text-cream">{item.caption}</h3>
+                <p className="mt-1 max-w-xs font-sans text-sm text-cream/75">{item.category}</p>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }

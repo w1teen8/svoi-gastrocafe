@@ -4,8 +4,5 @@
   { "id": "g3", "category": "Страви", "caption": "Фірмова страва «СВОЇ»", "image": "/images/menu-hero.jpg" },
   { "id": "g4", "category": "Напої", "caption": "Авторські коктейлі", "image": "/images/cocktail-dark.jpg" },
   { "id": "g5", "category": "Страви", "caption": "Десерт дня", "image": "/images/dessert-plate.jpg" },
-  { "id": "g6", "category": "Інтер'єр", "caption": "Тераса та альтанки", "image": "/images/about-interior.jpg" },
-  { "id": "g7", "category": "Атмосфера", "caption": "Вечір у «СВОЇ»", "image": "/images/lantern-bokeh.jpg" },
-  { "id": "g8", "category": "Інтер'єр", "caption": "Столик з живими квітами", "image": "/images/about-flowers.jpg" },
-  { "id": "g9", "category": "Атмосфера", "caption": "Настрій вечора", "image": "/images/interior-candles.jpg" }
+  { "id": "g6", "category": "Атмосфера", "caption": "Столик з живими квітами", "image": "/images/about-flowers.jpg" }
 ]

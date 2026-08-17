@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
           align="center"
         />
 
-        <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
+        <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
           {features.map((f, i) => {
             const Icon = f.icon;
             return (
@@ -44,10 +44,10 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.6, delay: (i % 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6 }}
-                className="glass flex flex-col items-center gap-4 rounded-lux px-4 py-10 text-center"
+                whileHover={{ y: -4 }}
+                className="glass flex flex-col items-center gap-3 rounded-lux px-4 py-5 text-center"
               >
-                <Icon size={28} strokeWidth={1.4} className="text-gold" />
+                <Icon size={22} strokeWidth={1.4} className="text-gold" />
                 <span className="font-sans text-sm leading-snug text-primary">
                   {f.title}
                 </span>

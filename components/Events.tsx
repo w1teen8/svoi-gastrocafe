@@ -34,27 +34,21 @@ export default function Events() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={`group relative flex flex-col justify-between overflow-hidden rounded-lux border border-border-soft p-8 ${
-                i === 0 ? "lg:col-span-2 lg:row-span-2 lg:min-h-[420px]" : "min-h-[260px]"
-              }`}
+              className="group relative flex flex-col gap-5 overflow-hidden rounded-lux border border-border-soft p-6"
             >
               <PlaceholderArt
                 tone={event.tone}
                 pattern="grid"
                 className="absolute inset-0 opacity-[0.14] transition-opacity duration-500 group-hover:opacity-25"
               />
-              <div className="relative flex flex-1 flex-col justify-between gap-6">
-                <span className="font-display text-sm text-gold">
-                  0{i + 1}
-                </span>
-                <div className="flex flex-col gap-3">
-                  <h3 className="font-display text-2xl text-primary sm:text-3xl">
-                    {event.title}
-                  </h3>
-                  <p className="max-w-sm font-sans text-sm leading-relaxed text-secondary">
-                    {event.description}
-                  </p>
-                </div>
+              <div className="relative flex flex-col gap-3">
+                <span className="font-display text-sm text-gold">0{i + 1}</span>
+                <h3 className="font-display text-2xl text-primary sm:text-3xl">
+                  {event.title}
+                </h3>
+                <p className="max-w-sm font-sans text-sm leading-relaxed text-secondary">
+                  {event.description}
+                </p>
               </div>
             </motion.div>
           ))}

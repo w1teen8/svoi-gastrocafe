@@ -26,7 +26,7 @@ export default function About() {
           alt="Сервірований стіл з букетом квітів у залі «СВОЇ»"
           width={1600}
           height={900}
-          className="h-[560px] w-full object-cover sm:h-[620px]"
+          className="h-[85vh] min-h-[600px] w-full object-cover"
         />
         <div className="absolute inset-0" style={{ backgroundImage: "var(--overlay-side)" }} />
 
