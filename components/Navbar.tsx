@@ -15,14 +15,14 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { totalCount } = useCart();
   const pathname = usePathname();
-  // Only the home page has a full-bleed dark Hero photo behind the nav —
-  // everywhere else there's just the cream page background, so the bar
-  // should always sit solid there instead of a translucent smear.
+  // DESIGN_SPEC.md §9.1: transparent over the Hero photo, solid --espresso
+  // once scrolled past 80px. Away from the home page there's no Hero behind
+  // it, so it stays solid from the start.
   const transparentAtTop = pathname === "/" && !scrolled;
 
   useEffect(() => {
     function onScroll() {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 80);
     }
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -35,17 +35,18 @@ export default function Navbar() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 w-full transition-all duration-500",
           transparentAtTop
-            ? "bg-primary/25 py-6 backdrop-blur-sm"
-            : "glass-dark py-3 shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
+            ? "h-24 bg-transparent"
+            : "h-[72px] bg-espresso shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
         )}
       >
-        <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-6 sm:px-8 lg:px-12">
-          <Link
-            href="/"
-            className="font-display text-xl tracking-[0.15em] text-bg"
-            data-cursor="magnetic"
-          >
-            СВОЇ
+        <div className="mx-auto flex h-full w-full max-w-[1280px] items-center justify-between px-5 sm:px-10">
+          <Link href="/" className="flex flex-col leading-none" data-cursor="magnetic">
+            <span className="font-display text-xl tracking-[0.3em] text-cream">
+              СВОЇ
+            </span>
+            <span className="mt-1 font-sans text-[9px] tracking-[0.3em] text-cream-muted">
+              ГАСТРОКАФЕ
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex">
@@ -53,7 +54,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-sans text-sm tracking-wide text-bg/80 transition-colors hover:text-bg"
+                className="font-sans text-sm tracking-wide text-cream/80 transition-colors hover:text-cream"
                 data-cursor="magnetic"
               >
                 {item.label}
@@ -66,11 +67,11 @@ export default function Navbar() {
               href="/cart"
               aria-label="Кошик"
               data-cursor="magnetic"
-              className="relative flex h-11 w-11 items-center justify-center rounded-full text-bg transition-colors hover:text-gold"
+              className="relative flex h-11 w-11 items-center justify-center rounded-full text-cream transition-colors hover:text-terracotta"
             >
               <ShoppingBag size={20} />
               {totalCount > 0 && (
-                <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 font-sans text-[10px] font-medium text-bg">
+                <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-terracotta px-1 font-sans text-[10px] font-medium text-cream">
                   {totalCount}
                 </span>
               )}
@@ -85,7 +86,7 @@ export default function Navbar() {
             <button
               aria-label="Меню"
               onClick={() => setOpen(true)}
-              className="flex h-11 w-11 items-center justify-center rounded-full text-bg lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full text-cream lg:hidden"
             >
               <Menu size={22} />
             </button>
@@ -99,16 +100,16 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] flex flex-col bg-primary/98 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-[70] flex flex-col bg-espresso/98 backdrop-blur-xl lg:hidden"
           >
             <div className="flex items-center justify-between px-6 py-6">
-              <span className="font-display text-xl tracking-[0.15em] text-bg">
+              <span className="font-display text-xl tracking-[0.3em] text-cream">
                 СВОЇ
               </span>
               <button
                 aria-label="Закрити"
                 onClick={() => setOpen(false)}
-                className="flex h-11 w-11 items-center justify-center rounded-full text-bg"
+                className="flex h-11 w-11 items-center justify-center rounded-full text-cream"
               >
                 <X size={22} />
               </button>
@@ -124,7 +125,7 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="font-display text-4xl text-bg"
+                    className="font-display text-4xl text-cream"
                   >
                     {item.label}
                   </Link>

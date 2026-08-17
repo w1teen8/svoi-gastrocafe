@@ -26,6 +26,35 @@
   --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
 
   --breakpoint-3xl: 1920px;
+
+  /* ---- DESIGN_SPEC.md tokens (bento redesign, migrated section by section) ---- */
+  --color-espresso: #1c110b;
+  --color-espresso-soft: #2a1a11;
+  --color-cream: #f6f0e7;
+  --color-cream-card: #fcf8f2;
+  --color-terracotta: #e0642e;
+  --color-terracotta-deep: #c4501f;
+  --color-ink: #2b1d14;
+  --color-ink-muted: #8b7a6b;
+  --color-cream-muted: rgba(246, 240, 231, 0.72);
+  --color-hairline: #e4dacc;
+  --color-hairline-dark: rgba(246, 240, 231, 0.14);
+}
+
+:root {
+  /* Photo overlays — DESIGN_SPEC.md §4. The only permitted gradients: legibility
+     scrims over real photography, never decorative fills. */
+  --overlay-side: linear-gradient(
+    90deg,
+    rgba(28, 17, 11, 0.94) 0%,
+    rgba(28, 17, 11, 0.55) 48%,
+    rgba(28, 17, 11, 0.1) 100%
+  );
+  --overlay-bottom: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(28, 17, 11, 0.85) 100%
+  );
 }
 
 html {

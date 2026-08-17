@@ -45,10 +45,14 @@ export default function MagneticButton({
     setPos({ x: 0, y: 0 });
   }
 
+  // "outline" keeps the original light-background styling used across the
+  // still-unmigrated sections; Hero overrides it to the spec's ghost-light
+  // look (cream border/text) via className since it's the only dark-on-photo
+  // use of this variant so far.
   const base =
     variant === "solid"
-      ? "bg-gold-dark text-bg hover:bg-gold"
-      : "bg-transparent text-primary border border-primary/20 hover:border-primary/40";
+      ? "h-[52px] bg-terracotta px-8 font-sans text-xs font-medium uppercase tracking-[0.14em] text-cream hover:bg-terracotta-deep"
+      : "h-[52px] bg-transparent px-8 font-sans text-xs font-medium uppercase tracking-[0.14em] text-primary border border-primary/20 hover:border-primary/40";
 
   const content = (
     <motion.div

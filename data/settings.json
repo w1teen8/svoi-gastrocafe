@@ -3,7 +3,7 @@
     "name": "СВОЇ",
     "fullName": "Гастрокафе «СВОЇ»",
     "tagline": "Food. People. Moments. Together.",
-    "subtitle": "Гастрокафе «СВОЇ» — сучасний простір, де авторська кухня, тепла атмосфера та щирий сервіс створюють місце, куди хочеться повертатися.",
+    "subtitle": "Сезонні продукти, авторські поєднання та любов до деталей у кожній страві.",
     "city": "Боярка",
     "country": "Україна"
   },
@@ -29,13 +29,10 @@
     "secondary": "Переглянути меню"
   },
   "nav": [
-    { "label": "Головна", "href": "/#home" },
-    { "label": "Меню", "href": "/menu" },
     { "label": "Про нас", "href": "/#about" },
-    { "label": "Події", "href": "/#events" },
-    { "label": "Галерея", "href": "/#gallery" },
-    { "label": "Відгуки", "href": "/#reviews" },
-    { "label": "FAQ", "href": "/#faq" },
+    { "label": "Меню", "href": "/#menu" },
+    { "label": "Фото", "href": "/#photo" },
+    { "label": "Бронювання", "href": "/#reservation" },
     { "label": "Контакти", "href": "/#contacts" }
   ],
   "seo": {
