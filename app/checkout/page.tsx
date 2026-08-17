@@ -1,11 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check, ShoppingBag } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import MagneticButton from "@/components/ui/MagneticButton";
+import PlaceholderArt from "@/components/ui/PlaceholderArt";
 import { useCart } from "@/lib/cart-context";
+import { categoryTone } from "@/lib/menu-icons";
+import { dishImage } from "@/lib/dish-images";
 import { formatPrice, cn } from "@/lib/utils";
 import settings from "@/data/settings.json";
 
@@ -70,13 +74,14 @@ export default function CheckoutPage() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 pb-28 pt-32 sm:px-8 sm:pt-40">
-      <Breadcrumb
-        items={[{ label: "Головна", href: "/" }, { label: "Кошик", href: "/cart" }, { label: "Оформлення" }]}
-      />
-
-      <h1 className="mt-6 font-display text-4xl leading-[1.05] text-primary sm:text-5xl">
+      <h1 className="font-display text-4xl leading-[1.05] text-primary sm:text-5xl">
         Оформлення замовлення
       </h1>
+      <div className="mt-4">
+        <Breadcrumb
+          items={[{ label: "Головна", href: "/" }, { label: "Кошик", href: "/cart" }, { label: "Оформлення" }]}
+        />
+      </div>
 
       <div className="mt-8 flex items-center gap-3">
         {steps.map((label, i) => {
@@ -240,14 +245,28 @@ export default function CheckoutPage() {
               Ваше замовлення
             </span>
             <div className="flex flex-col gap-3">
-              {items.map((item) => (
-                <div key={item.id} className="flex items-center justify-between gap-3 font-sans text-sm">
-                  <span className="text-primary">
-                    {item.qty} × {item.name}
-                  </span>
-                  <span className="shrink-0 text-secondary">{formatPrice(item.qty * item.price)}</span>
-                </div>
-              ))}
+              {items.map((item) => {
+                const photo = dishImage(item.id);
+                return (
+                  <div key={item.id} className="flex items-center gap-3 font-sans text-sm">
+                    {photo ? (
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                        <Image src={photo} alt={item.name} fill sizes="40px" className="object-cover" />
+                      </div>
+                    ) : (
+                      <PlaceholderArt
+                        tone={categoryTone(item.categoryId)}
+                        pattern="radial"
+                        className="h-10 w-10 shrink-0 rounded-full"
+                      />
+                    )}
+                    <span className="min-w-0 flex-1 text-primary">
+                      {item.qty} × {item.name}
+                    </span>
+                    <span className="shrink-0 text-secondary">{formatPrice(item.qty * item.price)}</span>
+                  </div>
+                );
+              })}
             </div>
             <div className="flex items-center justify-between border-t border-border-soft pt-4 font-sans text-sm text-secondary">
               <span>Разом</span>

@@ -1,114 +1,94 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import settings from "@/data/settings.json";
-import SectionHeading from "./ui/SectionHeading";
+import Breadcrumb from "./ui/Breadcrumb";
 import InstagramIcon from "./ui/InstagramIcon";
+import FacebookIcon from "./ui/FacebookIcon";
+import MapPinIcon from "./ui/MapPinIcon";
 
 export default function Contacts() {
   const { lat, lng } = settings.contacts.coordinates;
+  // Google's embed always drops its own default marker at `q=`; our custom
+  // teardrop pin is layered on top of it at the same visual center.
   const mapSrc = `https://www.google.com/maps?q=${lat},${lng}&hl=uk&z=16&output=embed`;
 
   return (
-    <section id="contacts" className="py-28 sm:py-36">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <SectionHeading eyebrow="Контакти" title="Завітайте до нас" />
+    <section id="contacts" className="bg-cream py-20 sm:py-28">
+      <div className="mx-auto max-w-[1280px] px-5 sm:px-10">
+        <h2 className="font-display text-4xl uppercase tracking-[0.03em] text-ink sm:text-5xl">
+          Контакти
+        </h2>
+        <div className="mt-4">
+          <Breadcrumb items={[{ label: "Головна", href: "/" }, { label: "Контакти" }]} />
+        </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="glass flex flex-col gap-8 rounded-lux p-8 sm:p-10"
-          >
+        <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="flex flex-col gap-8 rounded-card bg-cream-card p-8 shadow-card sm:p-10">
             <div className="flex items-start gap-4">
-              <MapPin size={20} className="mt-1 shrink-0 text-gold" />
-              <div>
-                <p className="font-sans text-sm uppercase tracking-widest text-secondary">
-                  Адреса
-                </p>
-                <p className="mt-1 font-display text-xl text-primary">
-                  {settings.contacts.address}
-                </p>
-              </div>
+              <Phone size={18} className="mt-1 shrink-0 text-terracotta" />
+              <a
+                href={`tel:${settings.contacts.phone.replace(/[^+\d]/g, "")}`}
+                className="font-sans text-base text-ink"
+              >
+                {settings.contacts.phoneDisplay}
+              </a>
             </div>
             <div className="flex items-start gap-4">
-              <Phone size={20} className="mt-1 shrink-0 text-gold" />
-              <div>
-                <p className="font-sans text-sm uppercase tracking-widest text-secondary">
-                  Телефон
-                </p>
-                <a
-                  href={`tel:${settings.contacts.phone.replace(/[^+\d]/g, "")}`}
-                  className="mt-1 block font-display text-xl text-primary"
-                >
-                  {settings.contacts.phoneDisplay}
-                </a>
-              </div>
+              <MapPin size={18} className="mt-1 shrink-0 text-terracotta" />
+              <span className="font-sans text-base text-ink">{settings.contacts.address}</span>
             </div>
             <div className="flex items-start gap-4">
-              <Mail size={20} className="mt-1 shrink-0 text-gold" />
-              <div>
-                <p className="font-sans text-sm uppercase tracking-widest text-secondary">
-                  Email
-                </p>
-                <a
-                  href={`mailto:${settings.contacts.email}`}
-                  className="mt-1 block font-display text-xl text-primary"
-                >
-                  {settings.contacts.email}
-                </a>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <InstagramIcon size={20} className="mt-1 shrink-0 text-gold" />
-              <div>
-                <p className="font-sans text-sm uppercase tracking-widest text-secondary">
-                  Instagram
-                </p>
-                <a
-                  href={settings.contacts.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-1 block font-display text-xl text-primary"
-                >
-                  {settings.contacts.instagramHandle}
-                </a>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 border-t border-border-soft pt-8">
-              <Clock size={20} className="mt-1 shrink-0 text-gold" />
-              <div className="flex flex-col gap-2">
-                <p className="font-sans text-sm uppercase tracking-widest text-secondary">
-                  Графік роботи
-                </p>
+              <Clock size={18} className="mt-1 shrink-0 text-terracotta" />
+              <div className="flex flex-col gap-1 font-sans text-base text-ink">
                 {settings.hours.map((h) => (
-                  <div key={h.days} className="flex gap-4 font-sans text-sm text-primary">
-                    <span className="text-secondary">{h.days}</span>
-                    <span>{h.time}</span>
-                  </div>
+                  <span key={h.days}>
+                    {h.days}: {h.time}
+                  </span>
                 ))}
               </div>
             </div>
-          </motion.div>
+            <div className="flex items-start gap-4">
+              <Mail size={18} className="mt-1 shrink-0 text-terracotta" />
+              <a href={`mailto:${settings.contacts.email}`} className="font-sans text-base text-ink">
+                {settings.contacts.email}
+              </a>
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="min-h-[420px] overflow-hidden rounded-lux border border-border-soft grayscale-[15%] transition-[filter] duration-500 hover:grayscale-0"
-          >
+            <div className="mt-2 flex items-center gap-4 border-t border-hairline pt-6">
+              <a
+                href={settings.contacts.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink transition-colors hover:border-terracotta hover:text-terracotta"
+              >
+                <InstagramIcon size={16} />
+              </a>
+              <a
+                href={settings.contacts.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink transition-colors hover:border-terracotta hover:text-terracotta"
+              >
+                <FacebookIcon size={16} />
+              </a>
+            </div>
+          </div>
+
+          <div className="relative min-h-[420px] overflow-hidden rounded-card">
             <iframe
               title="Гастрокафе СВОЇ на карті"
               src={mapSrc}
-              className="h-full min-h-[420px] w-full"
+              className="h-full min-h-[420px] w-full grayscale-[35%]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </motion.div>
+            <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full">
+              <MapPinIcon size={44} />
+            </div>
+          </div>
         </div>
       </div>
     </section>

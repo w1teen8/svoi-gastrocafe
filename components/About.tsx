@@ -1,71 +1,82 @@
-import SectionHeading from "./ui/SectionHeading";
-import ServicesMarquee from "./ui/ServicesMarquee";
-import RevealText from "./ui/RevealText";
+import Image from "next/image";
+import {
+  Leaf,
+  ChefHat,
+  Heart,
+  MapPin,
+  Award,
+} from "lucide-react";
+import MagneticButton from "./ui/MagneticButton";
 
-const pillars = [
-  {
-    n: "01",
-    title: "Локальні продукти",
-    text: "Ми співпрацюємо з фермерськими господарствами Київщини — овочі, зелень і молочні продукти потрапляють на кухню протягом доби.",
-  },
-  {
-    n: "02",
-    title: "Свіжість щодня",
-    text: "Меню формується навколо сезонності: те, що росте зараз, з'являється у стравах — без заморозки і зайвих кілометрів.",
-  },
-  {
-    n: "03",
-    title: "Пристрасть до кухні",
-    text: "Наша команда шеф-кухарів переосмислює українську гастрономію через призму сучасної європейської подачі.",
-  },
-  {
-    n: "04",
-    title: "Щира гостинність",
-    text: "«СВОЇ» — це не просто назва. Кожен гість для нас — частина спільноти, якій завжди раді.",
-  },
+const features = [
+  { icon: Leaf, label: "Сезонні продукти" },
+  { icon: ChefHat, label: "Авторські страви" },
+  { icon: Heart, label: "Затишна атмосфера" },
+  { icon: MapPin, label: "Локація в центрі Києва" },
+  { icon: Award, label: "Посада від шеф-кухні" },
 ];
 
 export default function About() {
   return (
-    <section id="about" className="relative py-28 sm:py-36">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
-          <SectionHeading
-            eyebrow="Про нас"
-            title={
-              <>
-                Сучасна українська
-                <br />
-                гастрономія з душею
-              </>
-            }
-          />
-          <div className="flex flex-col justify-end gap-6">
-            <RevealText as="p" className="font-sans text-lg leading-relaxed text-secondary sm:text-xl">
-              «СВОЇ» — це простір, де страви готують з повагою до продукту, а
-              гостей зустрічають як рідних. Ми віримо, що справжня розкіш —
-              це увага до деталей, тиша між стравами та смак, який
-              запам'ятовується.
-            </RevealText>
+    <section id="about">
+      <div className="relative overflow-hidden">
+        <Image
+          src="/images/about-flowers.jpg"
+          alt="Сервірований стіл з букетом квітів у залі «СВОЇ»"
+          width={1600}
+          height={900}
+          className="h-[560px] w-full object-cover sm:h-[620px]"
+        />
+        <div className="absolute inset-0" style={{ backgroundImage: "var(--overlay-side)" }} />
+
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto w-full max-w-[1280px] px-5 sm:px-10">
+            <div className="max-w-md">
+              <span className="font-sans text-xs uppercase tracking-[0.3em] text-terracotta">
+                Про нас
+              </span>
+              <p className="mt-4 font-display text-2xl leading-snug text-cream sm:text-[28px]">
+                «СВОЇ» — це гастрокафе про щирість і прості речі. Про близьких
+                людей, теплі розмови та улюблені смаки. Тут кожен момент стає
+                особливим.
+              </p>
+              <div className="mt-7">
+                <MagneticButton href="#menu">Дізнатись більше</MagneticButton>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-20 grid grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2 lg:mt-28 lg:grid-cols-4">
-          {pillars.map((p) => (
-            <div key={p.n} className="flex flex-col gap-4 border-t border-border-soft pt-6">
-              <span className="font-display text-sm text-gold">{p.n}</span>
-              <h3 className="font-display text-2xl text-primary">{p.title}</h3>
-              <p className="font-sans text-sm leading-relaxed text-secondary">
-                {p.text}
-              </p>
-            </div>
-          ))}
+      <div className="bg-cream py-10">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-2 px-5 sm:grid-cols-5 sm:px-10">
+          {features.map((f, i) => {
+            const Icon = f.icon;
+            return (
+              <div
+                key={f.label}
+                className={
+                  "flex flex-col items-center gap-3 px-4 py-6 text-center sm:py-0 " +
+                  (i > 0 ? "border-t border-hairline sm:border-t-0 sm:border-l" : "")
+                }
+              >
+                <Icon size={28} strokeWidth={1.5} className="text-terracotta" />
+                <span className="font-sans text-xs uppercase tracking-[0.14em] text-ink">
+                  {f.label}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      <div className="mt-24 lg:mt-28">
-        <ServicesMarquee />
-      </div>
+      <Image
+        src="/images/about-interior.jpg"
+        alt="Інтер'єр залу «СВОЇ»"
+        width={1920}
+        height={800}
+        className="h-[280px] w-full object-cover sm:h-[380px]"
+      />
     </section>
   );
 }

@@ -5,7 +5,7 @@ import menu from "@/data/menu.json";
 import settings from "@/data/settings.json";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import CategoryItemRow from "@/components/menu/CategoryItemRow";
-import { categoryIcon, categoryTone } from "@/lib/menu-icons";
+import { categoryTone } from "@/lib/menu-icons";
 import { cn } from "@/lib/utils";
 
 interface PageProps {
@@ -32,43 +32,61 @@ export default async function CategoryPage({ params }: PageProps) {
   if (!active) notFound();
 
   return (
-    <main className="mx-auto max-w-6xl px-6 pb-28 pt-32 sm:px-8 sm:pt-40">
-      <Breadcrumb
-        items={[
-          { label: "Головна", href: "/" },
-          { label: "Меню", href: "/menu" },
-          { label: active.label },
-        ]}
-      />
+    <main className="grid grid-cols-1 lg:grid-cols-[280px_1fr]">
+      {/* Sidebar — DESIGN_SPEC.md §9.5: solid --espresso for the whole section height */}
+      <nav className="flex gap-2 overflow-x-auto bg-espresso px-5 pb-4 pt-28 sm:px-8 lg:sticky lg:top-0 lg:h-screen lg:flex-col lg:gap-1 lg:overflow-visible lg:pb-8 lg:pt-32">
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.2"
+          className="mb-6 hidden shrink-0 text-terracotta lg:block"
+          aria-hidden="true"
+        >
+          <path d="M18 4c-6 4-9 10-9 16 0 5 4 9 9 9s9-4 9-9c0-6-3-12-9-16z" />
+          <path d="M18 12v17M18 18c-3-2-6-2-8 0M18 22c3-2 6-2 8 0" />
+        </svg>
+        {menu.categories.map((c) => {
+          const isActive = c.id === active.id;
+          return (
+            <Link
+              key={c.id}
+              href={`/menu/${c.id}`}
+              className={cn(
+                "shrink-0 whitespace-nowrap rounded-full px-4 py-2.5 font-sans text-sm transition-colors duration-300 lg:rounded-lux lg:whitespace-normal",
+                isActive
+                  ? "bg-terracotta text-cream"
+                  : "text-cream-muted hover:text-cream"
+              )}
+            >
+              {c.label}
+            </Link>
+          );
+        })}
+      </nav>
 
-      <h1 className="mt-6 font-display text-4xl leading-[1.05] text-primary sm:text-5xl">
-        {active.label}
-      </h1>
+      <div className="px-5 pb-28 pt-28 sm:px-10 sm:pt-32">
+        <h1 className="font-display text-4xl leading-[1.05] text-ink sm:text-5xl">
+          {active.label}
+          {active.id === "breakfast" && (
+            <span className="ml-4 align-middle font-sans text-base font-normal text-terracotta">
+              8:00 — 13:00
+            </span>
+          )}
+        </h1>
+        <div className="mt-4">
+          <Breadcrumb
+            items={[
+              { label: "Головна", href: "/" },
+              { label: "Меню", href: "/menu" },
+              { label: active.label },
+            ]}
+          />
+        </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[240px_1fr]">
-        <nav className="flex gap-2 overflow-x-auto pb-2 lg:sticky lg:top-28 lg:h-fit lg:flex-col lg:gap-1 lg:overflow-visible lg:pb-0">
-          {menu.categories.map((c) => {
-            const Icon = categoryIcon(c.id);
-            const isActive = c.id === active.id;
-            return (
-              <Link
-                key={c.id}
-                href={`/menu/${c.id}`}
-                className={cn(
-                  "flex shrink-0 items-center gap-3 rounded-full px-4 py-2.5 font-sans text-sm transition-colors duration-300 lg:rounded-lux",
-                  isActive
-                    ? "bg-gold-dark text-bg"
-                    : "text-secondary hover:bg-bg-secondary hover:text-primary"
-                )}
-              >
-                <Icon size={16} strokeWidth={1.6} />
-                {c.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="flex flex-col gap-4">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {active.items.map((item, i) => (
             <CategoryItemRow
               key={item.id}

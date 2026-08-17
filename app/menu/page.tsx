@@ -13,14 +13,12 @@ export const metadata: Metadata = {
 export default function MenuIndexPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-28 pt-32 sm:px-8 sm:pt-40">
-      <Breadcrumb items={[{ label: "Головна", href: "/" }, { label: "Меню" }]} />
-
-      <div className="mt-8 flex flex-col gap-4">
-        <span className="font-sans text-xs uppercase tracking-[0.35em] text-gold">Меню</span>
-        <h1 className="font-display text-balance text-4xl leading-[1.05] text-primary sm:text-5xl md:text-6xl">
+      <div className="flex flex-col gap-4">
+        <h1 className="font-display text-balance text-4xl leading-[1.05] text-ink sm:text-5xl md:text-6xl">
           Оберіть розділ меню
         </h1>
-        <p className="max-w-xl font-sans text-base leading-relaxed text-secondary sm:text-lg">
+        <Breadcrumb items={[{ label: "Головна", href: "/" }, { label: "Меню" }]} />
+        <p className="mt-2 max-w-xl font-sans text-base leading-relaxed text-ink-muted sm:text-lg">
           Дванадцять категорій, зібраних навколо сезонності та балансу смаків.
           Обирайте страви — вони одразу потрапляють у кошик.
         </p>
@@ -34,13 +32,15 @@ export default function MenuIndexPage() {
               key={c.id}
               href={`/menu/${c.id}`}
               data-cursor="magnetic"
-              className="group flex flex-col items-center gap-4 rounded-lux border border-border-soft bg-bg-secondary/40 px-4 py-10 text-center transition-colors duration-300 hover:border-gold hover:bg-gold/5"
+              className="group flex flex-col items-center gap-3 px-4 py-8 text-center"
             >
-              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-bg transition-colors duration-300 group-hover:bg-gold-dark">
-                <Icon size={24} strokeWidth={1.4} />
-              </span>
-              <span className="font-sans text-sm text-primary">{c.label}</span>
-              <span className="font-sans text-xs text-secondary">
+              <Icon
+                size={32}
+                strokeWidth={1.5}
+                className="text-terracotta transition-transform duration-300 group-hover:-translate-y-0.5"
+              />
+              <span className="font-sans text-xs uppercase tracking-[0.14em] text-ink">{c.label}</span>
+              <span className="font-sans text-xs text-ink-muted">
                 {c.items.length} {c.items.length === 1 ? "страва" : "страв"}
               </span>
             </Link>

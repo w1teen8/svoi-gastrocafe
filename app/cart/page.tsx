@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trash2, ShoppingBag } from "lucide-react";
 import Breadcrumb from "@/components/ui/Breadcrumb";
@@ -9,6 +10,7 @@ import PlaceholderArt from "@/components/ui/PlaceholderArt";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { useCart } from "@/lib/cart-context";
 import { categoryTone } from "@/lib/menu-icons";
+import { dishImage } from "@/lib/dish-images";
 import { formatPrice } from "@/lib/utils";
 
 export default function CartPage() {
@@ -16,11 +18,12 @@ export default function CartPage() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 pb-28 pt-32 sm:px-8 sm:pt-40">
-      <Breadcrumb items={[{ label: "Головна", href: "/" }, { label: "Кошик" }]} />
-
-      <h1 className="mt-6 font-display text-4xl leading-[1.05] text-primary sm:text-5xl">
+      <h1 className="font-display text-4xl leading-[1.05] text-primary sm:text-5xl">
         Кошик
       </h1>
+      <div className="mt-4">
+        <Breadcrumb items={[{ label: "Головна", href: "/" }, { label: "Кошик" }]} />
+      </div>
 
       {items.length === 0 ? (
         <div className="mt-16 flex flex-col items-center gap-6 rounded-lux border border-border-soft bg-bg-secondary/40 px-8 py-20 text-center">
@@ -49,11 +52,23 @@ export default function CartPage() {
                   transition={{ duration: 0.3 }}
                   className="flex items-center gap-4 rounded-lux border border-border-soft bg-bg p-4 sm:p-5"
                 >
-                  <PlaceholderArt
-                    tone={categoryTone(item.categoryId)}
-                    pattern="radial"
-                    className="h-16 w-16 shrink-0 rounded-2xl"
-                  />
+                  {dishImage(item.id) ? (
+                    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl">
+                      <Image
+                        src={dishImage(item.id)!}
+                        alt={item.name}
+                        fill
+                        sizes="64px"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <PlaceholderArt
+                      tone={categoryTone(item.categoryId)}
+                      pattern="radial"
+                      className="h-16 w-16 shrink-0 rounded-2xl"
+                    />
+                  )}
                   <div className="flex min-w-0 flex-1 flex-col gap-1">
                     <h3 className="truncate font-display text-lg text-primary">{item.name}</h3>
                     <span className="font-sans text-xs uppercase tracking-wide text-secondary">

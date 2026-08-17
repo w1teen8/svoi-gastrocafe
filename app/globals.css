@@ -39,6 +39,9 @@
   --color-cream-muted: rgba(246, 240, 231, 0.72);
   --color-hairline: #e4dacc;
   --color-hairline-dark: rgba(246, 240, 231, 0.14);
+
+  --radius-card: 12px;
+  --shadow-card: 0 2px 16px rgba(43, 29, 20, 0.06);
 }
 
 :root {
