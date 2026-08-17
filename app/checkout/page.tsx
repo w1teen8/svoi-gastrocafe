@@ -10,6 +10,7 @@ import PlaceholderArt from "@/components/ui/PlaceholderArt";
 import { useCart } from "@/lib/cart-context";
 import { categoryTone } from "@/lib/menu-icons";
 import { dishImage } from "@/lib/dish-images";
+import { withBasePath } from "@/lib/asset-path";
 import { formatPrice, cn } from "@/lib/utils";
 import settings from "@/data/settings.json";
 
@@ -251,7 +252,13 @@ export default function CheckoutPage() {
                   <div key={item.id} className="flex items-center gap-3 font-sans text-sm">
                     {photo ? (
                       <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
-                        <Image src={photo} alt={item.name} fill sizes="40px" className="object-cover" />
+                        <Image
+                          src={withBasePath(photo)}
+                          alt={item.name}
+                          fill
+                          sizes="40px"
+                          className="object-cover"
+                        />
                       </div>
                     ) : (
                       <PlaceholderArt

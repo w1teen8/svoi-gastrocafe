@@ -7,6 +7,7 @@ import { Check, MapPin, Clock, Phone } from "lucide-react";
 import settings from "@/data/settings.json";
 import Breadcrumb from "./ui/Breadcrumb";
 import MagneticButton from "./ui/MagneticButton";
+import { withBasePath } from "@/lib/asset-path";
 
 const inputClass =
   "w-full border-b border-hairline bg-transparent py-3 font-sans text-base text-ink placeholder:text-ink-muted outline-none transition-colors focus:border-terracotta";
@@ -131,7 +132,7 @@ export default function Reservation() {
 
           <div className="relative min-h-[260px] lg:min-h-0">
             <Image
-              src="/images/booking-table.jpg"
+              src={withBasePath("/images/booking-table.jpg")}
               alt="Сервірований стіл у залі «СВОЇ»"
               fill
               sizes="(min-width: 1024px) 33vw, 100vw"

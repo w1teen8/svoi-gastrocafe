@@ -7,6 +7,7 @@ import {
   Award,
 } from "lucide-react";
 import MagneticButton from "./ui/MagneticButton";
+import { withBasePath } from "@/lib/asset-path";
 
 const features = [
   { icon: Leaf, label: "Сезонні продукти" },
@@ -21,7 +22,7 @@ export default function About() {
     <section id="about">
       <div className="relative overflow-hidden">
         <Image
-          src="/images/about-flowers.jpg"
+          src={withBasePath("/images/about-flowers.jpg")}
           alt="Сервірований стіл з букетом квітів у залі «СВОЇ»"
           width={1600}
           height={900}
@@ -71,7 +72,7 @@ export default function About() {
       </div>
 
       <Image
-        src="/images/about-interior.jpg"
+        src={withBasePath("/images/about-interior.jpg")}
         alt="Інтер'єр залу «СВОЇ»"
         width={1920}
         height={800}

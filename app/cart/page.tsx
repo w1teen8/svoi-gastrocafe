@@ -11,6 +11,7 @@ import MagneticButton from "@/components/ui/MagneticButton";
 import { useCart } from "@/lib/cart-context";
 import { categoryTone } from "@/lib/menu-icons";
 import { dishImage } from "@/lib/dish-images";
+import { withBasePath } from "@/lib/asset-path";
 import { formatPrice } from "@/lib/utils";
 
 export default function CartPage() {
@@ -55,7 +56,7 @@ export default function CartPage() {
                   {dishImage(item.id) ? (
                     <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl">
                       <Image
-                        src={dishImage(item.id)!}
+                        src={withBasePath(dishImage(item.id)!)}
                         alt={item.name}
                         fill
                         sizes="64px"

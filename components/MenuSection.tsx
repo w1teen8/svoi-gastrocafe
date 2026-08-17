@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import menu from "@/data/menu.json";
 import { categoryIcon } from "@/lib/menu-icons";
+import { withBasePath } from "@/lib/asset-path";
 
 const TEASER_CATEGORIES = [
   "breakfast",
@@ -24,7 +25,7 @@ export default function MenuSection() {
     <section id="menu">
       <div className="relative overflow-hidden">
         <Image
-          src="/images/menu-hero.jpg"
+          src={withBasePath("/images/menu-hero.jpg")}
           alt="Фірмова страва «СВОЇ»"
           width={1600}
           height={700}

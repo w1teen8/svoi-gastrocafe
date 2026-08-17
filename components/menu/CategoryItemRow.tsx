@@ -7,6 +7,7 @@ import PlaceholderArt from "@/components/ui/PlaceholderArt";
 import QtyStepper from "@/components/ui/QtyStepper";
 import { useCart } from "@/lib/cart-context";
 import { dishImage } from "@/lib/dish-images";
+import { withBasePath } from "@/lib/asset-path";
 import { parsePrice } from "@/lib/utils";
 
 interface CategoryItemRowProps {
@@ -49,7 +50,13 @@ export default function CategoryItemRow({
     >
       <div className="relative aspect-[4/3] w-full">
         {photo ? (
-          <Image src={photo} alt={item.name} fill sizes="(min-width: 1280px) 25vw, 50vw" className="object-cover" />
+          <Image
+            src={withBasePath(photo)}
+            alt={item.name}
+            fill
+            sizes="(min-width: 1280px) 25vw, 50vw"
+            className="object-cover"
+          />
         ) : (
           <PlaceholderArt tone={tone} pattern="radial" className="h-full w-full" />
         )}

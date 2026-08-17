@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Play, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import settings from "@/data/settings.json";
+import { withBasePath } from "@/lib/asset-path";
 import MagneticButton from "./ui/MagneticButton";
 import RevealText from "./ui/RevealText";
 import InstagramIcon from "./ui/InstagramIcon";
@@ -19,7 +20,7 @@ export default function Hero() {
       className="relative flex h-[100svh] min-h-[720px] w-full items-end overflow-hidden"
     >
       <Image
-        src="/images/hero-pasta.jpg"
+        src={withBasePath("/images/hero-pasta.jpg")}
         alt="Паста з чорнилом каракатиці та креветками на тарілці"
         fill
         priority

@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import galleryData from "@/data/gallery.json";
 import Breadcrumb from "./ui/Breadcrumb";
+import { withBasePath } from "@/lib/asset-path";
 import { cn } from "@/lib/utils";
 
 const categories = ["Усі", ...Array.from(new Set(galleryData.map((g) => g.category)))];
@@ -84,7 +85,7 @@ export default function Gallery() {
               className="group relative aspect-square overflow-hidden rounded-card text-left"
             >
               <Image
-                src={item.image}
+                src={withBasePath(item.image)}
                 alt={item.caption}
                 fill
                 sizes="(min-width: 640px) 25vw, 50vw"
@@ -144,7 +145,13 @@ export default function Gallery() {
               className="w-full max-w-3xl overflow-hidden rounded-card"
             >
               <div className="relative h-[60vh] w-full">
-                <Image src={current.image} alt={current.caption} fill sizes="100vw" className="object-cover" />
+                <Image
+                  src={withBasePath(current.image)}
+                  alt={current.caption}
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
               </div>
               <div className="flex items-center justify-between bg-cream-card px-6 py-4">
                 <span className="font-display text-lg text-ink">{current.caption}</span>
