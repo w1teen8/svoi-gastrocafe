@@ -19,12 +19,12 @@ export default function Hero() {
       className="relative flex h-[100svh] min-h-[720px] w-full flex-col justify-end overflow-hidden"
     >
       <Image
-        src={withBasePath("/images/hero-pasta.jpg")}
-        alt="Паста з чорнилом каракатиці та креветками на тарілці"
+        src={withBasePath("/images/hero-burger.jpg")}
+        alt="Фірмовий бургер «СВОЇ» з хрусткою булочкою"
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[68%_center]"
+        className="object-cover object-[45%_center]"
       />
       <div className="absolute inset-0" style={{ backgroundImage: "var(--overlay-side)" }} />
 
