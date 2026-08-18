@@ -81,7 +81,7 @@ export default function CategoryItemRow({
               aria-label={`Додати «${item.name}» у кошик`}
               onClick={handleAdd}
               data-cursor="magnetic"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-terracotta text-cream transition-colors hover:bg-terracotta-deep"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-terracotta text-ink transition-colors hover:bg-terracotta-hover"
             >
               <Plus size={16} />
             </button>

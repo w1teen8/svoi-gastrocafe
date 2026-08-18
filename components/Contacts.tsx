@@ -26,7 +26,7 @@ export default function Contacts() {
         <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="flex flex-col gap-8 rounded-card bg-cream-card p-8 shadow-card sm:p-10">
             <div className="flex items-start gap-4">
-              <Phone size={18} className="mt-1 shrink-0 text-terracotta" />
+              <Phone size={18} className="mt-1 shrink-0 text-terracotta-deep" />
               <a
                 href={`tel:${settings.contacts.phone.replace(/[^+\d]/g, "")}`}
                 className="font-sans text-base text-ink"
@@ -35,11 +35,11 @@ export default function Contacts() {
               </a>
             </div>
             <div className="flex items-start gap-4">
-              <MapPin size={18} className="mt-1 shrink-0 text-terracotta" />
+              <MapPin size={18} className="mt-1 shrink-0 text-terracotta-deep" />
               <span className="font-sans text-base text-ink">{settings.contacts.address}</span>
             </div>
             <div className="flex items-start gap-4">
-              <Clock size={18} className="mt-1 shrink-0 text-terracotta" />
+              <Clock size={18} className="mt-1 shrink-0 text-terracotta-deep" />
               <div className="flex flex-col gap-1 font-sans text-base text-ink">
                 {settings.hours.map((h) => (
                   <span key={h.days}>
@@ -49,7 +49,7 @@ export default function Contacts() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Mail size={18} className="mt-1 shrink-0 text-terracotta" />
+              <Mail size={18} className="mt-1 shrink-0 text-terracotta-deep" />
               <a href={`mailto:${settings.contacts.email}`} className="font-sans text-base text-ink">
                 {settings.contacts.email}
               </a>
@@ -61,7 +61,7 @@ export default function Contacts() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink transition-colors hover:border-terracotta hover:text-terracotta"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink transition-colors hover:border-terracotta-deep hover:text-terracotta-deep"
               >
                 <InstagramIcon size={16} />
               </a>
@@ -70,7 +70,7 @@ export default function Contacts() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink transition-colors hover:border-terracotta hover:text-terracotta"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink transition-colors hover:border-terracotta-deep hover:text-terracotta-deep"
               >
                 <FacebookIcon size={16} />
               </a>

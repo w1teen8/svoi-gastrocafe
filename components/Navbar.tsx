@@ -71,7 +71,7 @@ export default function Navbar() {
             >
               <ShoppingBag size={20} />
               {totalCount > 0 && (
-                <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-terracotta px-1 font-sans text-[10px] font-medium text-cream">
+                <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-terracotta px-1 font-sans text-[10px] font-medium text-ink">
                   {totalCount}
                 </span>
               )}

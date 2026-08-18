@@ -56,7 +56,7 @@ export default function Reservation() {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex flex-col items-center gap-4 py-10 text-center"
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-terracotta text-cream">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-terracotta text-ink">
                     <Check size={26} />
                   </span>
                   <h3 className="font-display text-2xl text-ink">Дякуємо!</h3>

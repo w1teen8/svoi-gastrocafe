@@ -51,7 +51,7 @@ export default function MagneticButton({
   // use of this variant so far.
   const base =
     variant === "solid"
-      ? "h-[52px] bg-terracotta px-8 font-sans text-xs font-medium uppercase tracking-[0.14em] text-cream hover:bg-terracotta-deep"
+      ? "h-[52px] bg-terracotta px-8 font-sans text-xs font-medium uppercase tracking-[0.14em] text-ink hover:bg-terracotta-hover"
       : "h-[52px] bg-transparent px-8 font-sans text-xs font-medium uppercase tracking-[0.14em] text-primary border border-primary/20 hover:border-primary/40";
 
   const content = (

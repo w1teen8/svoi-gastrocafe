@@ -10,8 +10,11 @@
   --color-secondary: #7a6d5c;
   --color-brown: #6b4a30;
   --color-olive: #4f6b45;
-  --color-gold: #b8501c;
-  --color-gold-dark: #8a3c15;
+  /* Same brand-yellow swap as --color-terracotta below, for the
+     not-yet-migrated legacy sections (Footer, Events, Reviews, cart/
+     checkout, etc.) that still use the old --color-gold naming. */
+  --color-gold: #e8b923;
+  --color-gold-dark: #8a6a14;
 
   /* Fonts */
   --font-display: var(--font-playfair), "Playfair Display", serif;
@@ -32,8 +35,21 @@
   --color-espresso-soft: #2a1a11;
   --color-cream: #f6f0e7;
   --color-cream-card: #fcf8f2;
-  --color-terracotta: #e0642e;
-  --color-terracotta-deep: #c4501f;
+  /* Brand yellow, matched to the real @gastrocafe.svoi Instagram logo.
+     Kept the --color-terracotta name (still used everywhere) to avoid a
+     mass rename; the value is now gold, not orange.
+     --color-terracotta (bright, e8b923): icons/text on DARK backgrounds
+       only — against white/cream it's ~1.7:1, nowhere near 4.5:1.
+     --color-terracotta-deep (8a6a14): the dark-safe gold. Use for (a) any
+       button/pill fill that keeps light (cream/white) text on top — bright
+       gold under white text is only ~2.9:1 — and (b) any terracotta text
+       or icon sitting on a light/cream surface. Passes 4.5:1 both ways. */
+  --color-terracotta: #e8b923;
+  /* Hover step for buttons that pair bright --color-terracotta with dark
+     ink text — dark enough to read as "pressed", still light enough
+     (L≥0.21) that ink text stays above 4.5:1 on it, unlike -deep below. */
+  --color-terracotta-hover: #d4a017;
+  --color-terracotta-deep: #8a6a14;
   --color-ink: #2b1d14;
   --color-ink-muted: #8b7a6b;
   --color-cream-muted: rgba(246, 240, 231, 0.72);

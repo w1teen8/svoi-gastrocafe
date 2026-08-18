@@ -76,7 +76,7 @@ export default function MenuSection() {
                   <Icon
                     size={32}
                     strokeWidth={1.5}
-                    className="text-terracotta transition-transform duration-300 group-hover:-translate-y-0.5"
+                    className="text-terracotta-deep transition-transform duration-300 group-hover:-translate-y-0.5"
                   />
                   <span className="font-sans text-xs uppercase tracking-[0.14em] text-ink">
                     {c.label}
@@ -95,7 +95,7 @@ export default function MenuSection() {
             <Link
               href="/menu"
               data-cursor="magnetic"
-              className="group inline-flex items-center gap-2 font-sans text-sm uppercase tracking-[0.25em] text-terracotta transition-colors hover:text-terracotta-deep"
+              className="group inline-flex items-center gap-2 font-sans text-sm uppercase tracking-[0.25em] text-terracotta-deep transition-colors hover:text-ink"
             >
               Переглянути повне меню
               <ArrowUpRight

@@ -12,7 +12,7 @@ export default function MapPinIcon({ size = 44 }: { size?: number }) {
         fontFamily="var(--font-display)"
         fontSize="11"
         letterSpacing="0.5"
-        fill="var(--color-cream)"
+        fill="var(--color-ink)"
       >
         СВОЇ
       </text>

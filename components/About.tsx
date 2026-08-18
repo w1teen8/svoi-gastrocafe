@@ -61,7 +61,7 @@ export default function About() {
                   (i > 0 ? "border-t border-hairline sm:border-t-0 sm:border-l" : "")
                 }
               >
-                <Icon size={28} strokeWidth={1.5} className="text-terracotta" />
+                <Icon size={28} strokeWidth={1.5} className="text-terracotta-deep" />
                 <span className="font-sans text-xs uppercase tracking-[0.14em] text-ink">
                   {f.label}
                 </span>

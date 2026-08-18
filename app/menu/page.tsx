@@ -37,7 +37,7 @@ export default function MenuIndexPage() {
               <Icon
                 size={32}
                 strokeWidth={1.5}
-                className="text-terracotta transition-transform duration-300 group-hover:-translate-y-0.5"
+                className="text-terracotta-deep transition-transform duration-300 group-hover:-translate-y-0.5"
               />
               <span className="font-sans text-xs uppercase tracking-[0.14em] text-ink">{c.label}</span>
               <span className="font-sans text-xs text-ink-muted">

@@ -57,7 +57,7 @@ export default async function CategoryPage({ params }: PageProps) {
               className={cn(
                 "shrink-0 whitespace-nowrap rounded-full px-4 py-2.5 font-sans text-sm transition-colors duration-300 lg:rounded-lux lg:whitespace-normal",
                 isActive
-                  ? "bg-terracotta text-cream"
+                  ? "bg-terracotta text-ink"
                   : "text-cream-muted hover:text-cream"
               )}
             >
@@ -71,7 +71,7 @@ export default async function CategoryPage({ params }: PageProps) {
         <h1 className="font-display text-4xl leading-[1.05] text-ink sm:text-5xl">
           {active.label}
           {active.id === "breakfast" && (
-            <span className="ml-4 align-middle font-sans text-base font-normal text-terracotta">
+            <span className="ml-4 align-middle font-sans text-base font-normal text-terracotta-deep">
               8:00 — 13:00
             </span>
           )}
