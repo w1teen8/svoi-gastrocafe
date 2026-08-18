@@ -20,16 +20,27 @@ export default function Hero() {
     >
       {/* Full-bleed photo across the whole hero — the earlier right-panel
           split left a visible seam where the flat espresso panel met the
-          photo's own fade, so back to one continuous image + side gradient. */}
+          photo's own fade, so back to one continuous image + side gradient.
+          This photo's herb crown sits fairly central (~32-52% width), right
+          under the text column, so the gradient here holds near-full dark
+          further right than the shared --overlay-side before fading — the
+          crisp dish stays out from under the text, only the soft blurred
+          bowl-rim/background is allowed to show through it. */}
       <Image
         src={withBasePath("/images/hero-porkbelly.jpg")}
         alt="Хрустке свиняче черево з бульйоном та мікрозеленню"
         fill
         priority
         sizes="100vw"
-        className="object-cover object-[70%_center]"
+        className="object-cover"
       />
-      <div className="absolute inset-0" style={{ backgroundImage: "var(--overlay-side)" }} />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(90deg, rgba(28,17,11,.96) 0%, rgba(28,17,11,.88) 50%, rgba(28,17,11,.55) 66%, rgba(28,17,11,.15) 85%, rgba(28,17,11,.05) 100%)",
+        }}
+      />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col gap-5 px-5 pb-10 pt-28 sm:gap-6 sm:px-10 sm:pb-14 sm:pt-32">
         <div className="max-w-xl">
