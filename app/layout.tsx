@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import settings from "@/data/settings.json";
 import Providers from "./providers";
@@ -11,8 +11,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyReserveButton from "@/components/StickyReserveButton";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+// Best-effort visual match for the real @gastrocafe.svoi Instagram logo
+// (thin, delicate serif) — swapped from the heavier, higher-contrast
+// Playfair Display at the user's request.
+const displayFont = Cormorant_Garamond({
+  variable: "--font-display-serif",
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -80,7 +83,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="uk" className={`${displayFont.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"

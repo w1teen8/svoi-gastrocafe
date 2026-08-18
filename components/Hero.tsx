@@ -16,17 +16,25 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex h-[100svh] min-h-[720px] w-full flex-col justify-end overflow-hidden"
+      className="relative flex h-[100svh] min-h-[720px] w-full flex-col justify-end overflow-hidden bg-espresso"
     >
-      <Image
-        src={withBasePath("/images/hero-burger.jpg")}
-        alt="Фірмовий бургер «СВОЇ» з хрусткою булочкою"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[45%_center]"
-      />
-      <div className="absolute inset-0" style={{ backgroundImage: "var(--overlay-side)" }} />
+      {/* Photo is confined to the right ~54% of the screen on desktop, leaving
+          a calm solid-espresso zone on the left for the text — full-bleed
+          with the side gradient only as the mobile fallback. */}
+      <div className="absolute inset-0 lg:left-[46%]">
+        <Image
+          src={withBasePath("/images/hero-steak.jpg")}
+          alt="Стейк на грилі з овочами на тарілці"
+          fill
+          priority
+          sizes="(min-width: 1024px) 54vw, 100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ backgroundImage: "var(--overlay-side)" }}
+        />
+      </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col gap-5 px-5 pb-10 pt-28 sm:gap-6 sm:px-10 sm:pb-14 sm:pt-32">
         <div className="max-w-xl">
