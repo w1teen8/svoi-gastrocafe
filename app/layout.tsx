@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import settings from "@/data/settings.json";
 import Providers from "./providers";
@@ -11,13 +11,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyReserveButton from "@/components/StickyReserveButton";
 
-// Best-effort visual match for the real @gastrocafe.svoi Instagram logo
-// (thin, delicate serif) — swapped from the heavier, higher-contrast
-// Playfair Display at the user's request.
-const displayFont = Cormorant_Garamond({
+// Heavier, higher-contrast display serif for a more premium/expensive feel
+// (traded away the closer match to the real Instagram logo's thin
+// Cormorant Garamond for this bolder look, at the user's request).
+const displayFont = Playfair_Display({
   variable: "--font-display-serif",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
