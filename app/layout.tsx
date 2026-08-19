@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Prata, Inter } from "next/font/google";
 import "./globals.css";
 import settings from "@/data/settings.json";
 import Providers from "./providers";
@@ -11,13 +11,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyReserveButton from "@/components/StickyReserveButton";
 
-// Heavier, higher-contrast display serif for a more premium/expensive feel
-// (traded away the closer match to the real Instagram logo's thin
-// Cormorant Garamond for this bolder look, at the user's request).
-const displayFont = Playfair_Display({
+// Refined single-weight editorial serif (Didot-adjacent) for a more
+// expensive, high-fashion feel than Playfair — size carries the weight
+// at display scale, so the single 400 cut is intentional, not a
+// limitation.
+const displayFont = Prata({
   variable: "--font-display-serif",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400"],
   display: "swap",
 });
 

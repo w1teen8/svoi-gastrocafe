@@ -10,7 +10,7 @@ import RevealText from "./ui/RevealText";
 import InstagramIcon from "./ui/InstagramIcon";
 import FacebookIcon from "./ui/FacebookIcon";
 
-const lines = ["Їжа.", "Люди.", "Моменти.", "Разом."];
+const lines = ["Смак.", "Тепло.", "Спільнота.", "Назавжди."];
 
 export default function Hero() {
   return (
@@ -55,7 +55,7 @@ export default function Hero() {
                 delay={0.15 * i}
                 className={
                   "font-display text-5xl leading-[1.05] sm:text-6xl md:text-7xl lg:text-[88px] " +
-                  (line === "Разом." ? "text-terracotta" : "text-cream")
+                  (line === "Назавжди." ? "italic text-terracotta" : "text-cream")
                 }
               >
                 {line}
