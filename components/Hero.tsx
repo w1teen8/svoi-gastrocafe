@@ -18,17 +18,14 @@ export default function Hero() {
       id="home"
       className="relative flex h-[100svh] min-h-[720px] w-full flex-col justify-end overflow-hidden bg-espresso"
     >
-      {/* Full-bleed photo across the whole hero — the earlier right-panel
-          split left a visible seam where the flat espresso panel met the
-          photo's own fade, so back to one continuous image + side gradient.
-          This photo's herb crown sits fairly central (~32-52% width), right
-          under the text column, so the gradient here holds near-full dark
-          further right than the shared --overlay-side before fading — the
-          crisp dish stays out from under the text, only the soft blurred
-          bowl-rim/background is allowed to show through it. */}
+      {/* Full-bleed photo across the whole hero — one continuous image +
+          side gradient. This dish sits on an almost entirely dark plate
+          and background already, so the overlay only needs to deepen the
+          left edge for the text column; the lit dish itself stays clear
+          on the right without any extra darkening. */}
       <Image
-        src={withBasePath("/images/hero-porkbelly.jpg")}
-        alt="Хрустке свиняче черево з бульйоном та мікрозеленню"
+        src={withBasePath("/images/cat-mains.jpg")}
+        alt="Томлена бараняча гомілка з овочами та картопляним пюре"
         fill
         priority
         sizes="100vw"
