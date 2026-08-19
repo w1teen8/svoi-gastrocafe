@@ -19,23 +19,24 @@ export default function Hero() {
       className="relative flex h-[100svh] min-h-[720px] w-full flex-col justify-end overflow-hidden bg-espresso"
     >
       {/* Full-bleed photo across the whole hero — one continuous image +
-          side gradient. This dish sits on an almost entirely dark plate
-          and background already, so the overlay only needs to deepen the
-          left edge for the text column; the lit dish itself stays clear
-          on the right without any extra darkening. */}
+          side gradient. Source photo has the dish on the left and a plain
+          wood table / drink glass on the right, so it's mirrored (flop)
+          to put the mussels on the right, clear of the text column; the
+          gradient only needs to darken the table/glass side on the left. */}
       <Image
-        src={withBasePath("/images/cat-mains.jpg")}
-        alt="Томлена бараняча гомілка з овочами та картопляним пюре"
+        src={withBasePath("/images/hero-mussels-cheese.jpg")}
+        alt="Запечені мідії у сирному соусі"
         fill
         priority
         sizes="100vw"
         className="object-cover"
+        style={{ objectPosition: "50% 15%" }}
       />
       <div
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, rgba(28,17,11,.96) 0%, rgba(28,17,11,.88) 50%, rgba(28,17,11,.55) 66%, rgba(28,17,11,.15) 85%, rgba(28,17,11,.05) 100%)",
+            "linear-gradient(90deg, rgba(28,17,11,.95) 0%, rgba(28,17,11,.9) 40%, rgba(28,17,11,.65) 58%, rgba(28,17,11,.25) 75%, rgba(28,17,11,.05) 100%)",
         }}
       />
 
