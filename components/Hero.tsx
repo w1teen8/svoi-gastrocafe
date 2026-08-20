@@ -41,7 +41,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-col gap-5 px-5 pb-10 pt-28 sm:gap-6 sm:px-10 sm:pb-14 sm:pt-32">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1920px] flex-col gap-5 px-5 pb-10 pt-28 sm:gap-6 sm:px-10 sm:pb-14 sm:pt-32">
         <div className="max-w-xl">
           <span className="font-sans text-xs uppercase tracking-[0.3em] text-terracotta">
             Гастрокафе «СВОЇ»
@@ -97,7 +97,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3, duration: 1 }}
-        className="relative z-10 mx-auto flex w-full max-w-[1600px] items-center gap-4 px-5 pb-8 sm:px-10 sm:pb-10"
+        className="relative z-10 mx-auto flex w-full max-w-[1920px] items-center gap-4 px-5 pb-8 sm:px-10 sm:pb-10"
       >
         <a
           href={settings.contacts.instagram}

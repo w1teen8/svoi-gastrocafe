@@ -27,7 +27,7 @@ const features = [
 export default function WhyChooseUs() {
   return (
     <section className="bg-bg-secondary/50 py-28 sm:py-36">
-      <div className="mx-auto max-w-[1600px] px-6 sm:px-8">
+      <div className="mx-auto max-w-[1920px] px-6 sm:px-8">
         <SectionHeading
           eyebrow="Чому обирають нас"
           title="Вісім причин довіритись «СВОЇ»"

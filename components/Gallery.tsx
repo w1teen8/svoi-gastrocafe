@@ -36,7 +36,7 @@ export default function Gallery() {
       style={{ height: `calc(100vh + ${distance}px)` }}
     >
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-20">
-        <div className="mx-auto mb-10 w-full max-w-[1600px] px-5 sm:px-10">
+        <div className="mx-auto mb-10 w-full max-w-[1920px] px-5 sm:px-10">
           <h2 className="font-display text-4xl uppercase tracking-[0.03em] text-ink sm:text-5xl">
             Фото
           </h2>

@@ -15,7 +15,7 @@ export default function Contacts() {
 
   return (
     <section id="contacts" className="bg-cream py-20 sm:py-28">
-      <div className="mx-auto max-w-[1600px] px-5 sm:px-10">
+      <div className="mx-auto max-w-[1920px] px-5 sm:px-10">
         <h2 className="font-display text-4xl uppercase tracking-[0.03em] text-ink sm:text-5xl">
           Контакти
         </h2>
