@@ -54,7 +54,7 @@ export default function Hero() {
                 as="h1"
                 delay={0.15 * i}
                 className={
-                  "font-display uppercase text-5xl leading-[1.05] tracking-wide sm:text-6xl md:text-7xl lg:text-[80px] " +
+                  "font-display font-light uppercase text-5xl leading-[1.05] tracking-wide sm:text-6xl md:text-7xl lg:text-[80px] " +
                   (line === "нас усіх." ? "text-terracotta" : "text-cream")
                 }
               >

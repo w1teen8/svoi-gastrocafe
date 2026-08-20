@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Prata, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import settings from "@/data/settings.json";
 import Providers from "./providers";
@@ -11,14 +11,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyReserveButton from "@/components/StickyReserveButton";
 
-// Refined single-weight editorial serif (Didot-adjacent) for a more
-// expensive, high-fashion feel than Playfair — size carries the weight
-// at display scale, so the single 400 cut is intentional, not a
-// limitation.
-const displayFont = Prata({
+// Thin/light editorial serif per direct feedback ("текст тонкий") —
+// Prata's single 400 weight read too heavy next to the reference.
+// Cormorant Garamond's 300 (Light) cut is used for headings; the
+// family still goes up to 700 for spots that want more weight.
+const displayFont = Cormorant_Garamond({
   variable: "--font-display-serif",
   subsets: ["latin", "cyrillic"],
-  weight: ["400"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
