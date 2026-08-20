@@ -13,8 +13,8 @@ const features = [
   { icon: Leaf, label: "Сезонні продукти" },
   { icon: ChefHat, label: "Авторські страви" },
   { icon: Heart, label: "Затишна атмосфера" },
-  { icon: MapPin, label: "Локація в центрі Києва" },
-  { icon: Award, label: "Посада від шеф-кухні" },
+  { icon: MapPin, label: "Центр Боярки" },
+  { icon: Award, label: "Порада від шефа" },
 ];
 
 export default function About() {
@@ -37,9 +37,7 @@ export default function About() {
                 Про нас
               </span>
               <p className="mt-4 font-display text-2xl leading-snug text-cream sm:text-[28px]">
-                «СВОЇ» — це гастрокафе про щирість і прості речі. Про близьких
-                людей, теплі розмови та улюблені смаки. Тут кожен момент стає
-                особливим.
+                Гастрокафе про щирість, близьких людей і улюблені смаки.
               </p>
               <div className="mt-7">
                 <MagneticButton href="#menu">Дізнатись більше</MagneticButton>

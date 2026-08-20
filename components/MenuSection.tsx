@@ -40,8 +40,7 @@ export default function MenuSection() {
                 Меню
               </h2>
               <p className="mt-4 font-sans text-sm leading-relaxed text-cream-muted sm:text-base">
-                Сезонні продукти, авторські поєднання та любов до деталей у
-                кожній страві.
+                Сезонні продукти. Авторська кухня.
               </p>
             </div>
           </div>
