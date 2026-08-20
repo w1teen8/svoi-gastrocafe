@@ -18,26 +18,24 @@ export default function Hero() {
       id="home"
       className="relative flex h-[100svh] min-h-[720px] w-full flex-col justify-end overflow-hidden bg-espresso"
     >
-      {/* Full-bleed photo across the whole hero — one continuous image +
-          side gradient. This plate fills almost the full width of the
-          source shot (no naturally empty side to crop into), so the left
-          gradient has to run stronger and further right than usual to
-          keep the tomatoes/mushrooms on that side out of the text's way;
-          the steak and rosemary sprig stay legible on the right. */}
+      {/* Full-bleed banner photo — already composed with the dish in the
+          right ~40% and a large dark negative-space field on the left, so
+          the gradient here only needs a light touch for text contrast,
+          not the heavy masking the previous top-down plate shot needed. */}
       <Image
-        src={withBasePath("/images/hero-steak-rosemary.jpg")}
+        src={withBasePath("/images/hero-steak-banner.jpg")}
         alt="Стейк з розмарином на темній тарілці"
         fill
         priority
         sizes="100vw"
         className="object-cover"
-        style={{ objectPosition: "50% 42%" }}
+        style={{ objectPosition: "50% 50%" }}
       />
       <div
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, rgba(15,12,10,.97) 0%, rgba(15,12,10,.93) 45%, rgba(15,12,10,.72) 62%, rgba(15,12,10,.32) 80%, rgba(15,12,10,.08) 100%)",
+            "linear-gradient(90deg, rgba(10,8,7,.55) 0%, rgba(10,8,7,.4) 35%, rgba(10,8,7,.15) 55%, rgba(10,8,7,0) 70%)",
         }}
       />
 
