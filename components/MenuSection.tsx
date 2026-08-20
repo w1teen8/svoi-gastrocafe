@@ -34,7 +34,7 @@ export default function MenuSection() {
         <div className="absolute inset-0" style={{ backgroundImage: "var(--overlay-side)" }} />
 
         <div className="absolute inset-0 flex items-center">
-          <div className="mx-auto w-full max-w-[1920px] px-5 sm:px-10">
+          <div className="mx-auto w-full max-w-[1280px] px-5 sm:px-10">
             <div className="max-w-sm">
               <h2 className="font-display text-4xl uppercase tracking-[0.03em] text-cream sm:text-5xl">
                 Меню
@@ -61,7 +61,7 @@ export default function MenuSection() {
       </div>
 
       <div className="bg-cream pb-16 pt-4">
-        <div className="mx-auto max-w-[1920px] px-5 sm:px-10">
+        <div className="mx-auto max-w-[1280px] px-5 sm:px-10">
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
             {categories.map((c) => {
               const Icon = categoryIcon(c.id);
