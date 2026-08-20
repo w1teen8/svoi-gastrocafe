@@ -31,7 +31,7 @@ export default function About() {
         <div className="absolute inset-0" style={{ backgroundImage: "var(--overlay-side)" }} />
 
         <div className="absolute inset-0 flex items-center">
-          <div className="mx-auto w-full max-w-[1280px] px-5 sm:px-10">
+          <div className="mx-auto w-full max-w-[1600px] px-5 sm:px-10">
             <div className="max-w-md">
               <span className="font-sans text-xs uppercase tracking-[0.3em] text-terracotta">
                 Про нас
@@ -48,7 +48,7 @@ export default function About() {
       </div>
 
       <div className="bg-cream py-10">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-2 px-5 sm:grid-cols-5 sm:px-10">
+        <div className="mx-auto grid max-w-[1600px] grid-cols-2 px-5 sm:grid-cols-5 sm:px-10">
           {features.map((f, i) => {
             const Icon = f.icon;
             return (

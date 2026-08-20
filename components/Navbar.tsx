@@ -39,7 +39,7 @@ export default function Navbar() {
             : "h-[72px] bg-espresso shadow-[0_8px_30px_rgba(0,0,0,0.25)]"
         )}
       >
-        <div className="mx-auto flex h-full w-full max-w-[1280px] items-center justify-between px-5 sm:px-10">
+        <div className="mx-auto flex h-full w-full max-w-[1600px] items-center justify-between px-5 sm:px-10">
           <Link href="/" className="flex flex-col leading-none" data-cursor="magnetic">
             <span className="font-display text-xl tracking-[0.3em] text-cream">
               СВОЇ
