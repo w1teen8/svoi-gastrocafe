@@ -54,7 +54,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-sans text-sm tracking-wide text-cream/80 transition-colors hover:text-cream"
+                className="font-sans text-xs uppercase tracking-[0.14em] text-cream/80 transition-colors hover:text-cream"
                 data-cursor="magnetic"
               >
                 {item.label}
@@ -77,19 +77,23 @@ export default function Navbar() {
               )}
             </Link>
 
-            <div className="hidden lg:block">
-              <MagneticButton href="/#reservation" className="!px-6 !py-3 text-xs">
-                {settings.cta.primary}
-              </MagneticButton>
-            </div>
-
             <button
               aria-label="Меню"
               onClick={() => setOpen(true)}
-              className="flex h-11 w-11 items-center justify-center rounded-full text-cream lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full text-cream transition-colors hover:text-terracotta"
             >
               <Menu size={22} />
             </button>
+
+            <div className="hidden sm:block">
+              <MagneticButton
+                href="/#reservation"
+                variant="outline"
+                className="!h-11 !border-terracotta/50 !px-6 !py-0 !text-xs !text-terracotta hover:!border-terracotta"
+              >
+                {settings.cta.primary}
+              </MagneticButton>
+            </div>
           </div>
         </div>
       </header>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import settings from "@/data/settings.json";
 import { withBasePath } from "@/lib/asset-path";
 import MagneticButton from "./ui/MagneticButton";
@@ -10,7 +10,7 @@ import RevealText from "./ui/RevealText";
 import InstagramIcon from "./ui/InstagramIcon";
 import FacebookIcon from "./ui/FacebookIcon";
 
-const lines = ["Смак.", "Тепло.", "Спільнота.", "Назавжди."];
+const lines = ["Смак.", "Що об'єднує", "нас усіх."];
 
 export default function Hero() {
   return (
@@ -54,14 +54,21 @@ export default function Hero() {
                 as="h1"
                 delay={0.15 * i}
                 className={
-                  "font-display text-5xl leading-[1.05] sm:text-6xl md:text-7xl lg:text-[88px] " +
-                  (line === "Назавжди." ? "italic text-terracotta" : "text-cream")
+                  "font-display uppercase text-5xl leading-[1.05] tracking-wide sm:text-6xl md:text-7xl lg:text-[80px] " +
+                  (line === "нас усіх." ? "text-terracotta" : "text-cream")
                 }
               >
                 {line}
               </RevealText>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ delay: 0.85, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-6 h-px w-16 origin-left bg-terracotta"
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -78,7 +85,10 @@ export default function Hero() {
             transition={{ delay: 1.05, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="mt-7 flex flex-wrap items-center gap-6"
           >
-            <MagneticButton href="/#menu">{settings.cta.secondary}</MagneticButton>
+            <MagneticButton href="/#menu">
+              {settings.cta.secondary}
+              <ArrowRight size={16} />
+            </MagneticButton>
           </motion.div>
         </div>
       </div>
@@ -93,19 +103,19 @@ export default function Hero() {
           href={settings.contacts.instagram}
           target="_blank"
           rel="noreferrer"
-          aria-label="Facebook"
+          aria-label="Instagram"
           className="text-cream/70 transition-colors hover:text-cream"
         >
-          <FacebookIcon size={16} />
+          <InstagramIcon size={16} />
         </a>
         <a
           href={settings.contacts.instagram}
           target="_blank"
           rel="noreferrer"
-          aria-label="Instagram"
+          aria-label="Facebook"
           className="text-cream/70 transition-colors hover:text-cream"
         >
-          <InstagramIcon size={16} />
+          <FacebookIcon size={16} />
         </a>
         <a
           href="#about"
