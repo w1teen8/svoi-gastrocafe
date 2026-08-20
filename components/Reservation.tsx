@@ -39,7 +39,7 @@ export default function Reservation() {
 
   return (
     <section id="reservation" className="bg-cream py-20 sm:py-28">
-      <div className="mx-auto max-w-[1280px] px-5 sm:px-10">
+      <div className="mx-auto max-w-[1920px] px-5 sm:px-10">
         <div className="grid grid-cols-1 overflow-hidden rounded-card shadow-card lg:grid-cols-3">
           <div className="flex flex-col justify-center bg-cream-card px-6 py-10 sm:px-10">
             <h2 className="font-display text-4xl uppercase tracking-[0.03em] text-ink">

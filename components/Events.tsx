@@ -9,7 +9,7 @@ import MagneticButton from "./ui/MagneticButton";
 export default function Events() {
   return (
     <section id="events" className="py-28 sm:py-36">
-      <div className="mx-auto max-w-[1280px] px-6 sm:px-8">
+      <div className="mx-auto max-w-[1920px] px-6 sm:px-8">
         <SectionHeading
           eyebrow="Події"
           title={
